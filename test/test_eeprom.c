@@ -17,19 +17,19 @@ uint16_t address;
 
 /*===functions==================================*/
 
-/* */
+/* función mock para la lectura de datos de la EEPROM virtual */
 static void mock_read( uint16_t address, uint8_t *data, uint8_t data_len, int num_calls )
 {
     memcpy( data, &virtual_eeprom[ address ], data_len );
 }
 
-/* */
+/* función mock para la escritura de datos en la EEPROM virtual */
 static void mock_write( uint16_t address, uint8_t *data, uint8_t data_len, int num_calls )
 {
     memcpy( &virtual_eeprom[ address ], data, data_len );
 }
 
-/*  */
+/* se registran las funciones mock de lectura y escritura para poder usarlas en todos los tests */
 void setUp( void )
 {
     i2c_write_register_StubWithCallback( mock_write );
@@ -188,7 +188,8 @@ void test_eeprom_address_less_than_initial_address( void )
 /* se detecta si se escribe o lee de una dirección de la EEPROM por encima del rango permitido */
 void test_eeprom_address_greater_than_eeprom_size( void )
 {
-    /* se define una dirección de memoria por encima del rango permitido para 8 bits */
+    /* se define una dirección de memoria por encima del rango permitido para 8 bits, el rango 
+     * superior es el tamaño de la EEPROM menos el tamaño que ocupa la variable de 8 bits (1 byte) */
     address = EEPROM_SIZE - sizeof( uint8_t ) + 1;
 
     /* se declaran los datos a ser escritos y leídos de 8 bits */
@@ -199,7 +200,8 @@ void test_eeprom_address_greater_than_eeprom_size( void )
     TEST_ASSERT_EQUAL_UINT8( false, eeprom_read8( address, &read_data8 ) );
     TEST_ASSERT_EQUAL_UINT8( false, eeprom_write8( address, &write_data8 ) );
     
-    /* se define una dirección de memoria por encima del rango permitido para 16 bits */
+    /* se define una dirección de memoria por encima del rango permitido para 16 bits, el rango 
+     * superior es el tamaño de la EEPROM menos el tamaño que ocupa la variable de 8 bits (2 bytes) */
     address = EEPROM_SIZE - sizeof( uint16_t ) + 1;
 
     /* se declaran los datos a ser escritos y leídos de 16 bits */
@@ -210,7 +212,8 @@ void test_eeprom_address_greater_than_eeprom_size( void )
     TEST_ASSERT_EQUAL_UINT8( false, eeprom_read16( address, &read_data16 ) );
     TEST_ASSERT_EQUAL_UINT8( false, eeprom_write16( address, &write_data16 ) );
 
-    /* se define una dirección de memoria por encima del rango permitido para 32 bits */
+    /* se define una dirección de memoria por encima del rango permitido para 32 bits, el rango 
+     * superior es el tamaño de la EEPROM menos el tamaño que ocupa la variable de 8 bits (4 bytes) */
     address = EEPROM_SIZE - sizeof( uint32_t ) + 1;
 
     /* se declaran los datos a ser escritos y leídos de 32 bits */
