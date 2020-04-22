@@ -488,7 +488,7 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
 
 
-    address = 4096 - sizeof( uint16_t ) + 3;
+    address = 4096 - sizeof( uint16_t ) + 1;
 
 
 
@@ -521,5 +521,43 @@ void test_eeprom_address_greater_than_eeprom_size( void )
    ((void *)0)
 
    ), (UNITY_UINT)(211), UNITY_DISPLAY_STYLE_UINT8);
+
+
+
+
+
+    address = 4096 - sizeof( uint32_t ) + 1;
+
+
+
+
+
+    uint16_t read_data32 = 0x0;
+
+    uint16_t write_data32 = 0xFFFFFFFF;
+
+
+
+
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((
+
+   0
+
+   )), (UNITY_INT)(UNITY_UINT8 )((eeprom_read32( address, &read_data32 ))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(221), UNITY_DISPLAY_STYLE_UINT8);
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((
+
+   0
+
+   )), (UNITY_INT)(UNITY_UINT8 )((eeprom_write32( address, &write_data32 ))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(222), UNITY_DISPLAY_STYLE_UINT8);
 
 }

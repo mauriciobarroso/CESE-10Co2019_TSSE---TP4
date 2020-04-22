@@ -202,7 +202,7 @@ void test_eeprom_address_greater_than_eeprom_size( void )
     /* se define una dirección de memoria por encima del rango permitido para 16 bits */
     address = EEPROM_SIZE - sizeof( uint16_t ) + 1;
 
-    /* se declaran los datos a ser escritos y leídos de 8 bits */
+    /* se declaran los datos a ser escritos y leídos de 16 bits */
     uint16_t read_data16 = 0x0;    
     uint16_t write_data16 = 0xFFFF;    
 
@@ -210,14 +210,14 @@ void test_eeprom_address_greater_than_eeprom_size( void )
     TEST_ASSERT_EQUAL_UINT8( false, eeprom_read16( address, &read_data16 ) );
     TEST_ASSERT_EQUAL_UINT8( false, eeprom_write16( address, &write_data16 ) );
 
-    /* se define una dirección de memoria por encima del rango permitido para 16 bits */
-    address = EEPROM_SIZE - sizeof( uint16_t ) + 1;
+    /* se define una dirección de memoria por encima del rango permitido para 32 bits */
+    address = EEPROM_SIZE - sizeof( uint32_t ) + 1;
 
-    /* se declaran los datos a ser escritos y leídos de 8 bits */
-    uint16_t read_data16 = 0x0;    
-    uint16_t write_data16 = 0xFFFF;    
+    /* se declaran los datos a ser escritos y leídos de 32 bits */
+    uint16_t read_data32 = 0x0;    
+    uint16_t write_data32 = 0xFFFFFFFF;    
 
     /* se verifica si el valor obtenido por las funciones de lectura y escritura es false */
-    TEST_ASSERT_EQUAL_UINT8( false, eeprom_read16( address, &read_data16 ) );
-    TEST_ASSERT_EQUAL_UINT8( false, eeprom_write16( address, &write_data16 ) );
+    TEST_ASSERT_EQUAL_UINT8( false, eeprom_read32( address, &read_data32 ) );
+    TEST_ASSERT_EQUAL_UINT8( false, eeprom_write32( address, &write_data32 ) );
 }
