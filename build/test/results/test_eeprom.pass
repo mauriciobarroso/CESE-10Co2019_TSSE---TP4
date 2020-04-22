@@ -1,0 +1,46 @@
+---
+:source:
+  :path: test
+  :file: test_eeprom.c
+:successes:
+- :test: test_eeprom_read8
+  :line: 46
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_write8
+  :line: 64
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_read16
+  :line: 82
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_write16
+  :line: 101
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_read32
+  :line: 119
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_write32
+  :line: 140
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_address_less_than_initial_address
+  :line: 158
+  :message: ''
+  :unity_test_time: 0
+- :test: test_eeprom_address_greater_than_eeprom_size
+  :line: 189
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 8
+  :passed: 8
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.000939718999688921
