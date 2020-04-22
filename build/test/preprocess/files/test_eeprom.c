@@ -450,6 +450,8 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
 
 
+
+
     address = 4096 - sizeof( uint8_t ) + 1;
 
 
@@ -472,7 +474,7 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
    ((void *)0)
 
-   ), (UNITY_UINT)(199), UNITY_DISPLAY_STYLE_UINT8);
+   ), (UNITY_UINT)(200), UNITY_DISPLAY_STYLE_UINT8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((
 
@@ -482,7 +484,9 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
    ((void *)0)
 
-   ), (UNITY_UINT)(200), UNITY_DISPLAY_STYLE_UINT8);
+   ), (UNITY_UINT)(201), UNITY_DISPLAY_STYLE_UINT8);
+
+
 
 
 
@@ -510,7 +514,7 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
    ((void *)0)
 
-   ), (UNITY_UINT)(210), UNITY_DISPLAY_STYLE_UINT8);
+   ), (UNITY_UINT)(212), UNITY_DISPLAY_STYLE_UINT8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((
 
@@ -520,7 +524,9 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
    ((void *)0)
 
-   ), (UNITY_UINT)(211), UNITY_DISPLAY_STYLE_UINT8);
+   ), (UNITY_UINT)(213), UNITY_DISPLAY_STYLE_UINT8);
+
+
 
 
 
@@ -548,7 +554,7 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
    ((void *)0)
 
-   ), (UNITY_UINT)(221), UNITY_DISPLAY_STYLE_UINT8);
+   ), (UNITY_UINT)(224), UNITY_DISPLAY_STYLE_UINT8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((
 
@@ -558,6 +564,6 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
    ((void *)0)
 
-   ), (UNITY_UINT)(222), UNITY_DISPLAY_STYLE_UINT8);
+   ), (UNITY_UINT)(225), UNITY_DISPLAY_STYLE_UINT8);
 
 }
