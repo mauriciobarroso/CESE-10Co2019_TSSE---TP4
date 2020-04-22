@@ -410,9 +410,9 @@ void test_eeprom_address_less_than_initial_address( void )
 
 
 
-    uint16_t read_data32 = 0x0;
+    uint32_t read_data32 = 0x0;
 
-    uint16_t write_data32 = 0xFFFFFFFF;
+    uint32_t write_data32 = 0xFFFFFFFF;
 
 
 
@@ -532,9 +532,9 @@ void test_eeprom_address_greater_than_eeprom_size( void )
 
 
 
-    uint16_t read_data32 = 0x0;
+    uint32_t read_data32 = 0x0;
 
-    uint16_t write_data32 = 0xFFFFFFFF;
+    uint32_t write_data32 = 0xFFFFFFFF;
 
 
 
